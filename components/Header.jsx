@@ -1,15 +1,21 @@
 import React from "react";
 import Image from "next/image";
+import {
+  BadgeCheckIcon,
+  CollectionIcon,
+  HomeIcon,
+  LightningBoltIcon,
+  SearchIcon,
+  UserIcon,
+} from "@heroicons/react/outline";
 
 import HeaderItem from "./HeaderItem";
 
 const Header = () => {
   return (
     <header>
-      <h1>This is Header</h1>
-
       <div>
-        <HeaderItem title='HOME' />
+        <HeaderItem title='HOME' Icon={HomeIcon} />
       </div>
       <Image src='https://links.papareact.com/ua6' width={200} height={100} />
     </header>
