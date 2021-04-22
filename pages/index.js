@@ -6,12 +6,10 @@ import Results from "../components/Results";
 import requests from "../utils/requests";
 
 export default function Home({ results }) {
-  console.log(results);
-
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Hulu</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
