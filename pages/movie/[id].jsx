@@ -1,11 +1,13 @@
 import React from "react";
 
+import MoviePoster from "../../components/MoviePoster";
+
 const Movie = ({ results }) => {
   console.log(results);
 
   return (
     <div>
-      <h1>Movie Details</h1>
+      <MoviePoster posterImageURL={results.poster_path} />
     </div>
   );
 };
