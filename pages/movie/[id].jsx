@@ -1,6 +1,7 @@
 import React from "react";
 
 import MoviePoster from "../../components/MoviePoster";
+import Rating from "../../components/Rating";
 
 const Movie = ({ results }) => {
   console.log(results);
@@ -12,6 +13,10 @@ const Movie = ({ results }) => {
       <div className='pl-10 mt-10'>
         <p className='text-2xl text-white font-serif'>{results.title}</p>
         <p className='text-sm text-gray-300 font-normal'>{results.tagline}</p>
+      </div>
+
+      <div>
+        <Rating rating={results.vote_average / 2} />
       </div>
     </div>
   );
