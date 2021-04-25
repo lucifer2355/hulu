@@ -5,14 +5,12 @@ import { StarIcon as SolidStartIcon } from "@heroicons/react/solid";
 
 const Rating = ({ rating }) => {
   return (
-    <div className='mt-5 pl-10'>
-      <Stars
-        emptySymbol={<OutlineStarIcon className='h-5' />}
-        fullSymbol={<SolidStartIcon className='h-5' />}
-        initialRating={rating}
-        readonly
-      />
-    </div>
+    <Stars
+      emptySymbol={<OutlineStarIcon className='h-4' />}
+      fullSymbol={<SolidStartIcon className='h-4' />}
+      initialRating={rating}
+      readonly
+    />
   );
 };
 
