@@ -7,7 +7,7 @@ const Genres = ({ genres }) => {
       {genres.map((genre) => (
         <div
           key={genre.id}
-          className='flex items-center transition transform hover:-translate-y-0.5  cursor-pointer'
+          className='last:pr-10 flex items-center transition transform hover:-translate-y-0.5  cursor-pointer'
         >
           <XCircleIcon className='h-2 mr-1' />
           <h2 className='text-sm'>{genre.name}</h2>

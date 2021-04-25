@@ -1,11 +1,12 @@
 import React from "react";
-import Genres from "../../components/Genres";
 
 import MoviePoster from "../../components/MoviePoster";
 import Rating from "../../components/Rating";
+import Genres from "../../components/Genres";
+import Cast from "../../components/Cast";
 
-const Movie = ({ results }) => {
-  console.log(results);
+const Movie = ({ results, cast }) => {
+  console.log(cast);
 
   return (
     <div>
@@ -35,7 +36,11 @@ const Movie = ({ results }) => {
 
       <div className='mt-6 pl-10'>
         <h2 className='text-sm font-serif font-bold'>THE SYNOPSIS</h2>
-        <p className='mt-1 text-sm'>{results.overview}</p>
+        <p className='mt-1 text-sm pr-5'>{results.overview}</p>
+      </div>
+
+      <div>
+        <Cast />
       </div>
     </div>
   );
@@ -50,9 +55,14 @@ export async function getServerSideProps(context) {
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
   ).then((res) => res.json());
 
+  const cast = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
+  ).then((res) => res.json());
+
   return {
     props: {
       results: request,
+      cast,
     },
   };
 }
