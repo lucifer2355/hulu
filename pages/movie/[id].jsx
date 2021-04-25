@@ -32,6 +32,11 @@ const Movie = ({ results }) => {
         <h2 className='text-sm font-serif font-bold'>THE GENRES</h2>
         <Genres genres={results.genres} />
       </div>
+
+      <div className='mt-6 pl-10'>
+        <h2 className='text-sm font-serif font-bold'>THE SYNOPSIS</h2>
+        <p className='mt-1 text-sm'>{results.overview}</p>
+      </div>
     </div>
   );
 };
