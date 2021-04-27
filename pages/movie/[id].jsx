@@ -1,12 +1,14 @@
 import React from "react";
+import { LinkIcon } from "@heroicons/react/outline";
 
 import MoviePoster from "../../components/MoviePoster";
 import Rating from "../../components/Rating";
 import Genres from "../../components/Genres";
 import Cast from "../../components/Cast";
+import MovieWebLinks from "../../components/MovieWebLinks";
 
 const Movie = ({ results, cast }) => {
-  console.log(cast);
+  console.log(results);
 
   return (
     <div>
@@ -42,6 +44,10 @@ const Movie = ({ results, cast }) => {
       <div className='mt-6 pl-10'>
         <h2 className='text-sm font-serif font-bold'>THE CAST</h2>
         <Cast cast={cast} />
+      </div>
+
+      <div>
+        <MovieWebLinks title='Website' Icon={LinkIcon} />
       </div>
     </div>
   );

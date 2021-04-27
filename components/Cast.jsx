@@ -13,16 +13,17 @@ const Cast = ({ cast }) => {
         autoPlaySpeed={3000}
         centerMode={false}
         className=''
-        containerClass='container-with-dots'
+        containerClass='container-container'
         dotListClass=''
         draggable
         focusOnSelect={false}
         infinite
-        itemClass=''
+        itemClass='carousel-item-padding-100-px'
         keyBoardControl
         minimumTouchDrag={80}
         renderButtonGroupOutside={false}
         renderDotsOutside={false}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
         responsive={{
           desktop: {
             breakpoint: {
@@ -37,8 +38,8 @@ const Cast = ({ cast }) => {
               max: 464,
               min: 0,
             },
-            items: 3,
-            partialVisibilityGutter: 10,
+            items: 5,
+            partialVisibilityGutter: 5,
           },
           tablet: {
             breakpoint: {
