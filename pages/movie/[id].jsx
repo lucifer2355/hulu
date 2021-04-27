@@ -39,8 +39,9 @@ const Movie = ({ results, cast }) => {
         <p className='mt-1 text-sm pr-5'>{results.overview}</p>
       </div>
 
-      <div>
-        <Cast />
+      <div className='mt-6 pl-10'>
+        <h2 className='text-sm font-serif font-bold'>THE CAST</h2>
+        <Cast cast={cast} />
       </div>
     </div>
   );
@@ -55,7 +56,7 @@ export async function getServerSideProps(context) {
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
   ).then((res) => res.json());
 
-  const cast = await fetch(
+  const { cast } = await fetch(
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
   ).then((res) => res.json());
 

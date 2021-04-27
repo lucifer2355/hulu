@@ -1,42 +1,65 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/outline";
+import React from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const NextArrow = ({ onClick }) => {
-  return <ChevronRightIcon />;
-};
-
-const PrevArrow = ({ onClick }) => {
-  return <ChevronLeftIcon />;
-};
+import CastItem from "./CastItem";
 
 const Cast = ({ cast }) => {
-  const [totalShow, setTotalShow] = useState(null);
-
-  const changeTotalShow = () => {
-    let totalItems = Math.round(sliderElement.current.offsetWidth / 70);
-    if (totalItems > cast.length) {
-      totalItems = cast.length;
-    }
-    setTotalShow(totalItems);
-  };
-
-  // const items =
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    swipeToSlide: true,
-    speed: 500,
-    slidesToShow: totalShow,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-  };
-
-  return <div>{/* <Slider {...settings}>{item}</Slider> */}</div>;
+  return (
+    <div className='pr-5 mt-2'>
+      <Carousel
+        additionalTransfrom={0}
+        arrows
+        autoPlaySpeed={3000}
+        centerMode={false}
+        className=''
+        containerClass='container-with-dots'
+        dotListClass=''
+        draggable
+        focusOnSelect={false}
+        infinite
+        itemClass=''
+        keyBoardControl
+        minimumTouchDrag={80}
+        renderButtonGroupOutside={false}
+        renderDotsOutside={false}
+        responsive={{
+          desktop: {
+            breakpoint: {
+              max: 3000,
+              min: 1024,
+            },
+            items: 8,
+            partialVisibilityGutter: 10,
+          },
+          mobile: {
+            breakpoint: {
+              max: 464,
+              min: 0,
+            },
+            items: 3,
+            partialVisibilityGutter: 10,
+          },
+          tablet: {
+            breakpoint: {
+              max: 1024,
+              min: 464,
+            },
+            items: 4,
+            partialVisibilityGutter: 10,
+          },
+        }}
+        showDots={false}
+        sliderClass=''
+        slidesToSlide={1}
+        swipeable
+      >
+        {cast.map((person) => (
+          <CastItem key={person.id} person={person} />
+        ))}
+      </Carousel>
+    </div>
+  );
 };
 
 export default Cast;
