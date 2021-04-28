@@ -46,8 +46,13 @@ const Movie = ({ results, cast }) => {
         <Cast cast={cast} />
       </div>
 
-      <div>
-        <MovieWebLinks title='Website' Icon={LinkIcon} />
+      <div className='flex mt-6 pl-10 space-x-3'>
+        <MovieWebLinks
+          title='Website'
+          Icon={LinkIcon}
+          link={results.homepage}
+        />
+        <MovieWebLinks title='IMDB' isImage />
       </div>
     </div>
   );

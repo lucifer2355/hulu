@@ -30,8 +30,8 @@ const Cast = ({ cast }) => {
               max: 3000,
               min: 1024,
             },
-            items: 8,
-            partialVisibilityGutter: 10,
+            items: 10,
+            partialVisibilityGutter: 5,
           },
           mobile: {
             breakpoint: {
@@ -46,8 +46,8 @@ const Cast = ({ cast }) => {
               max: 1024,
               min: 464,
             },
-            items: 4,
-            partialVisibilityGutter: 10,
+            items: 6,
+            partialVisibilityGutter: 5,
           },
         }}
         showDots={false}
