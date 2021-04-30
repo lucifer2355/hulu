@@ -7,7 +7,6 @@ import Rating from "../../components/Rating";
 import Genres from "../../components/Genres";
 import Cast from "../../components/Cast";
 import MovieWebLinks from "../../components/MovieWebLinks";
-import Recommended from "../../components/Recommended";
 import Results from "../../components/Results";
 
 const Movie = ({ results, cast, recommended }) => {
