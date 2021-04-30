@@ -1,5 +1,6 @@
 import React from "react";
-import { LinkIcon } from "@heroicons/react/outline";
+import { useRouter } from "next/router";
+import { LinkIcon, ArrowLeftIcon } from "@heroicons/react/outline";
 
 import MoviePoster from "../../components/MoviePoster";
 import Rating from "../../components/Rating";
@@ -9,6 +10,7 @@ import MovieWebLinks from "../../components/MovieWebLinks";
 
 const Movie = ({ results, cast }) => {
   console.log(results);
+  const router = useRouter();
 
   return (
     <div>
@@ -53,6 +55,14 @@ const Movie = ({ results, cast }) => {
           link={results.homepage}
         />
         <MovieWebLinks title='IMDB' isImage />
+      </div>
+
+      <div
+        className='flex items-center space-x-2 border w-24 rounded-2xl pl-5 pr-5 pt-1 pb-1 mt-5 ml-10 cursor-pointer transition transform hover:-translate-y-1'
+        onClick={() => router.back()}
+      >
+        <ArrowLeftIcon className='h-3' />
+        <h2>Back</h2>
       </div>
     </div>
   );
