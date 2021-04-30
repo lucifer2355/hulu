@@ -10,7 +10,6 @@ import MovieWebLinks from "../../components/MovieWebLinks";
 import Results from "../../components/Results";
 
 const Movie = ({ results, cast, recommended }) => {
-  console.log(recommended.results);
   const router = useRouter();
 
   return (
@@ -66,7 +65,14 @@ const Movie = ({ results, cast, recommended }) => {
         <h2>Back</h2>
       </div>
 
-      <Results results={recommended.results} />
+      <div>
+        <h2 className='text-2xl font-serif leading-3 mt-8 pl-10'>
+          RECOMMENDED
+        </h2>
+        <span className='text-xs pl-10'>MOVIES</span>
+
+        <Results results={recommended.results} />
+      </div>
     </div>
   );
 };
