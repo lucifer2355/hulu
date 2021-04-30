@@ -7,9 +7,11 @@ import Rating from "../../components/Rating";
 import Genres from "../../components/Genres";
 import Cast from "../../components/Cast";
 import MovieWebLinks from "../../components/MovieWebLinks";
+import Recommended from "../../components/Recommended";
+import Results from "../../components/Results";
 
-const Movie = ({ results, cast }) => {
-  console.log(results);
+const Movie = ({ results, cast, recommended }) => {
+  console.log(recommended.results);
   const router = useRouter();
 
   return (
@@ -64,6 +66,8 @@ const Movie = ({ results, cast }) => {
         <ArrowLeftIcon className='h-3' />
         <h2>Back</h2>
       </div>
+
+      <Results results={recommended.results} />
     </div>
   );
 };
@@ -81,10 +85,15 @@ export async function getServerSideProps(context) {
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.API_KEY}`
   ).then((res) => res.json());
 
+  const recommended = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.API_KEY}`
+  ).then((res) => res.json());
+
   return {
     props: {
       results: request,
       cast,
+      recommended,
     },
   };
 }
